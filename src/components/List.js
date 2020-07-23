@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AddItem } from "./AddItem";
 import { SortItems } from "./SortItems";
-import sortBy from "lodash.sortby";
+import { RenderList } from "./RenderList";
 import data from "../data/data.json";
 import "../styles/List.scss";
 
@@ -40,26 +40,13 @@ function List() {
         newDate={newDate}
       />
       <SortItems sort={sort} handleSort={handleSort} />
-
-      <ul>
-        {sortBy(items, sort).map((item, index) => (
-          <li key={index} className={checkedItem === item ? "active" : ""}>
-            <input
-              type="radio"
-              onChange={() => setCheckedItem(item)}
-              checked={checkedItem === item}
-            />
-            <span>{item.name}</span>
-            <span>{new Date(item.date).toLocaleDateString()}</span>
-            <button onClick={() => handleDeleteItem(index)}>
-              <span role="img" aria-label="delete">
-                ❌
-              </span>
-            </button>
-          </li>
-        ))}
-        {items.length === 0 && <li>Sorry, no results ¯\_(ツ)_/¯</li>}
-      </ul>
+      <RenderList
+        items={items}
+        sort={sort}
+        checkedItem={checkedItem}
+        setCheckedItem={setCheckedItem}
+        handleDeleteItem={handleDeleteItem}
+      />
     </main>
   );
 }
