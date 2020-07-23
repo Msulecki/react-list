@@ -1,0 +1,73 @@
+main {
+  width: 600px;
+  margin-top: 50px;
+}
+
+form {
+  display: flex;
+  height: 30px;
+
+  input {
+    margin-right: 15px;
+    &[type="submit"] {
+      width: 100px;
+    }
+  }
+}
+
+.sort {
+  button {
+    border: 0;
+    background-color: none;
+    font-size: inherit;
+    text-decoration: underline;
+    margin-right: 10px;
+  }
+
+  .active {
+    background-color: hsl(100, 60, 60);
+  }
+}
+
+ul {
+  max-width: 440px;
+  margin: 20px 0;
+  padding: 20px;
+  list-style-type: none;
+}
+
+li {
+  padding: 2px 5px;
+  margin: 5px 0;
+  box-shadow: 0 2px 2px -1px hsl(0, 0, 10);
+  background-color: hsl(0, 0, 85);
+  border: 2px solid transparent;
+  border-bottom: 2px solid hsl(0, 0, 80);
+  display: flex;
+  align-items: center;
+
+  &.active {
+    border: 2px solid hsl(100, 60, 60);
+    transition-duration: 0.3s;
+  }
+
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+  }
+
+  button {
+    margin-left: 20px;
+    border: 0;
+    background-color: transparent;
+  }
+
+  span {
+    flex: 1;
+
+    &:last-of-type {
+      text-align: end;
+    }
+  }
+}
